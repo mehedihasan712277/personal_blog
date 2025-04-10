@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Work_Sans, Raleway } from "next/font/google";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
 // Work Sans setup
 const workSans = Work_Sans({
@@ -33,7 +35,11 @@ export default function RootLayout({
       <body className={`${workSans.variable} ${raleway.variable} antialiased`}>
         <div className="w-full text-textColor">
           <div className="bg-yellow-500 wrapper font-sans">
-            {children}
+            <Navbar></Navbar>
+            <div>
+              {children}
+            </div>
+            <Footer></Footer>
           </div>
         </div>
       </body>
