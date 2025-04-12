@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 const AuthLinks = () => {
-    const status: string = "notauthenticated"
+    const status: string = "authenticated"
     return (
         <>
             {
