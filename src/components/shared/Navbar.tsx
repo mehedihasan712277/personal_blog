@@ -25,7 +25,7 @@ const Navbar = () => {
                 lamablog
             </div>
             {/* links - for learge device */}
-            <div className="hidden sm:flex items-center gap-3 md:gap-3 14i:gap-5 flex-1 text-sm md:text-[16px] 14i:text-xl">
+            <div className="hidden sm:flex items-center gap-3 md:gap-3 14i:gap-4 15i:gap-5 flex-1 text-sm md:text-[16px] 15i:text-xl">
                 <ThemeToggle></ThemeToggle>
                 <Link href="/">Homepage</Link>
                 <Link href="/">Contact</Link>
