@@ -3,12 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --bg: #ffffff;
+  --bg: red;
   --foreground: #171717;
   --textColor: #171717;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
 }
+
+.dark {
+  --bg: #0f172a;
+  --textColor: #ddd;
+  --softBg: #1f273a;
+  --softTextColor: #a6a6a6;
+}
+
+.light {
+  --bg: white;
+  --textColor: black;
+  --softBg: #f0f0f0;
+  --softTextColor: #626262;
+}
+
 
 * {
   padding: 0;

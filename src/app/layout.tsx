@@ -3,6 +3,8 @@ import "./globals.css";
 import { Work_Sans, Raleway } from "next/font/google";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
+import { ThemeContextProvider } from "@/components/shared/ThemeContext";
+import ThemeProvider from "@/components/shared/ThemeProvider";
 
 // Work Sans setup
 const workSans = Work_Sans({
@@ -33,15 +35,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${workSans.variable} ${raleway.variable} antialiased`}>
-        <div className="w-full text-textColor">
-          <div className="bg-yellow-500 wrapper font-sans">
-            <Navbar></Navbar>
-            <div>
-              {children}
+        <ThemeContextProvider>
+          <ThemeProvider>
+            <div className="w-full text-textColor bg-bg">
+              <div className="wrapper font-sans">
+                <Navbar></Navbar>
+                <div>
+                  {children}
+                </div>
+                <Footer></Footer>
+              </div>
             </div>
-            <Footer></Footer>
-          </div>
-        </div>
+          </ThemeProvider>
+        </ThemeContextProvider>
       </body>
     </html>
   );

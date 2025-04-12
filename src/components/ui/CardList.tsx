@@ -1,6 +1,11 @@
+import Pagination from "./Pagination"
+
 const CardList = () => {
     return (
-        <div>CardList</div>
+        <div>
+            CardList
+            <Pagination></Pagination>
+        </div>
     )
 }
 
