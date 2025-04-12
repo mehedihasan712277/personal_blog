@@ -9,7 +9,7 @@ import ThemeProvider from "@/components/shared/ThemeProvider";
 // Work Sans setup
 const workSans = Work_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-work-sans",
   display: "swap",
 });

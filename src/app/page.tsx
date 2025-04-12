@@ -9,7 +9,7 @@ const page = () => {
     <div>
       <Featured></Featured>
       <CategoryList></CategoryList>
-      <div>
+      <div className="flex">
         <CardList></CardList>
         <Menu></Menu>
       </div>
