@@ -43,7 +43,9 @@ export default function RootLayout({
                 <div>
                   {children}
                 </div>
-                <Footer></Footer>
+                <div className="border-t-[1px] border-bgSoft mt-20">
+                  <Footer></Footer>
+                </div>
               </div>
             </div>
           </ThemeProvider>
