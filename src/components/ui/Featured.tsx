@@ -3,7 +3,7 @@ import p1 from "../../../public/p1.jpeg"
 const Featured = () => {
     return (
         <div className="mt-8">
-            <p className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 14i:text-8xl text-justify">
+            <p className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 14i:text-8xl">
                 <span className="font-[500]">Hey lama dev here!</span> <span className="font-[300]">Discover my stories and creative ideas.</span>
             </p>
             <div className="mt-14 flex gap-12 items-center relative">

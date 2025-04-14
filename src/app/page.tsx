@@ -9,9 +9,14 @@ const page = () => {
     <div>
       <Featured></Featured>
       <CategoryList></CategoryList>
-      <div className="flex">
-        <CardList></CardList>
-        <Menu></Menu>
+      <div className="flex gap-12">
+        <div className="flex-[5]">
+          <CardList></CardList>
+        </div>
+
+        <div className="flex-[2]">
+          <Menu></Menu>
+        </div>
       </div>
     </div>
   )
