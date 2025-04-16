@@ -1,9 +1,29 @@
+// app/page.tsx or app/blog/page.tsx (wherever you use it)
 
+import Card from "@/components/ui/Card";
+import { getPosts } from "@/utils/fetchData";
 
-const page = () => {
-    return (
-        <div>page</div>
-    )
+interface PageProps {
+    searchParams: {
+        cat?: string;
+    };
 }
 
-export default page
+const Page = async ({ searchParams }: PageProps) => {
+    const category = searchParams.cat;
+    const blogs = await getPosts();
+
+    return (
+        <div className="flex flex-col gap-4">
+            {
+                blogs.filter(e => e.category.toLowerCase() == category).map(ele => {
+                    return <div key={ele._id}>
+                        <Card data={ele}></Card>
+                    </div>
+                })
+            }
+        </div>
+    );
+};
+
+export default Page;

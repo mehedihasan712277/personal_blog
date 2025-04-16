@@ -8,7 +8,9 @@ const Footer = () => {
             <div className="flex-1 flex flex-col gap-[14px] items-start">
                 <div className="flex items-center gap-2">
                     <Image src="/logo.png" alt="lama blog" width={50} height={50} />
-                    <h1 className="text-2xl font-bold">Lamablog</h1>
+                    <p className="text-2xl font-bold">
+                        {"Bloggers'"}
+                    </p>
                 </div>
                 <p className="font-light">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim

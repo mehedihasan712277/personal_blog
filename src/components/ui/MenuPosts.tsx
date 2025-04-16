@@ -3,7 +3,7 @@ import Link from "next/link"
 
 import p1 from "../../../public/p1.jpeg"
 
-const MenuPosts = ({ imageWith, title, subtitle }: { imageWith: Boolean; title: String; subtitle: String }) => {
+const MenuPosts = ({ imageWith, title, subtitle }: { imageWith: boolean; title: string; subtitle: string }) => {
     return (
         <div>
             <p className="text-[16px] text-gray-500">
