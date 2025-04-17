@@ -16,7 +16,7 @@ const Page = async ({ searchParams }: PageProps) => {
     return (
         <div className="flex flex-col gap-4">
             {
-                blogs.filter(e => e.category.toLowerCase() == category).map(ele => {
+                blogs.filter(e => e.category == category).map(ele => {
                     return <div key={ele._id}>
                         <Card data={ele}></Card>
                     </div>

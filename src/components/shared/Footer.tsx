@@ -19,10 +19,18 @@ const Footer = () => {
                     repellendus dorales.
                 </p>
                 <div className="mt-2 flex gap-2">
-                    <Image src="/facebook.png" alt="Facebook" width={18} height={18} />
-                    <Image src="/instagram.png" alt="Instagram" width={18} height={18} />
-                    <Image src="/tiktok.png" alt="Tiktok" width={18} height={18} />
-                    <Image src="/youtube.png" alt="YouTube" width={18} height={18} />
+                    <Link href="#">
+                        <Image src="/facebook.png" alt="Facebook" width={18} height={18} />
+                    </Link>
+                    <Link href="#">
+                        <Image src="/instagram.png" alt="Instagram" width={18} height={18} />
+                    </Link>
+                    <Link href="#">
+                        <Image src="/tiktok.png" alt="Tiktok" width={18} height={18} />
+                    </Link>
+                    <Link href="#">
+                        <Image src="/youtube.png" alt="YouTube" width={18} height={18} />
+                    </Link>
                 </div>
             </div>
 
@@ -30,9 +38,9 @@ const Footer = () => {
                 <div className="flex flex-col gap-2 font-light">
                     <span className="font-bold">Links</span>
                     <Link href="/">Homepage</Link>
-                    <Link href="/">Blog</Link>
-                    <Link href="/">About</Link>
-                    <Link href="/">Contact</Link>
+                    <Link href="/#blog">Blog</Link>
+                    <Link href="/about">About</Link>
+                    {/* <Link href="/">Contact</Link> */}
                 </div>
                 <div className="flex flex-col gap-2 font-light">
                     <span className="font-bold">Tags</span>
