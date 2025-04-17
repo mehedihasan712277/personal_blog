@@ -1,21 +1,34 @@
+"use client"
 import Image from "next/image"
 import p1 from "../../../public/p1.jpeg"
 import Link from "next/link"
+import DOMPurify from "dompurify"; // sanitize HTML (recommended)
 import { PostType } from "@/utils/type"
+import { getFormattedTime } from "@/utils/timeConverter";
 type CardPropType = {
     data: PostType
 }
+
+
+function getFirst15WordsFromHTML(html: string): string {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = html;
+    const text = tempDiv.textContent || tempDiv.innerText || "";
+    const words = text.split(" ").slice(0, 15).join(" ");
+    return DOMPurify.sanitize(words + (text.split(" ").length > 15 ? "..." : ""));
+}
+
 const Card = (data: CardPropType) => {
-    const { _id, title, description, category } = data.data
+    const { _id, title, description, category, createdAt } = data.data
     return (
         <div className="flex items-center gap-12">
             <div className="flex-1 h-[350px]">
                 <Image src={p1} alt="img" className="h-[350px] object-cover"></Image>
             </div>
 
-            <div className="flex-1 space-y-8">
+            <div className="flex-1 space-y-4">
                 <div>
-                    <span className="text-gray-500">11.02.2023 - </span>
+                    <span className="text-gray-500">{`${getFormattedTime(createdAt || Date.now()).slice(0, 10)}`} - </span>
                     <span className="text-red-400 font-[500] uppercase">
                         {category}
                     </span>
@@ -29,10 +42,16 @@ const Card = (data: CardPropType) => {
                     </Link>
                 </div>
 
-                <p className="text-lg text-softTextColor font-[300]">
-                    {/* {description.split(".")[0]} */}
-                    {description.split(" ").slice(0, 15).join(" ") + " ..."}
-                </p>
+                <div
+                    className="text-lg text-softTextColor font-[300]"
+                    dangerouslySetInnerHTML={{
+                        __html: getFirst15WordsFromHTML(description || ""),
+                    }}
+                />
+
+                {/* {description.split(".")[0]} */}
+                {/* {description.split(" ").slice(0, 15).join(" ") + " ..."} */}
+                {/* </div> */}
 
                 <div className="border-b-[1px] border-red-400 w-fit">
                     <Link href={`/blog/${_id}`}>

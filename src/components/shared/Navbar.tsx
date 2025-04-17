@@ -29,7 +29,7 @@ const Navbar = () => {
                 <ThemeToggle></ThemeToggle>
                 <Link href="/">Homepage</Link>
                 {/* <Link href="/">Contact</Link> */}
-                <Link href="/">About</Link>
+                <Link href="/about">About</Link>
                 <AuthLinks></AuthLinks>
             </div>
 

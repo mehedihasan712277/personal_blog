@@ -14,9 +14,13 @@ const BlogDetailsPage = async ({ params }: BlogDetailsPageProps) => {
             <p className="font-[500] pt-4 pb-12">
                 {data?.username}
             </p>
-            <p className="text-xl">
-                {data?.description}
-            </p>
+            <div className="text-xl"
+                dangerouslySetInnerHTML={{
+                    __html: data?.description || "",
+                }}
+            />
+            {/* {data?.description} */}
+            {/* </div> */}
         </div>
     );
 };

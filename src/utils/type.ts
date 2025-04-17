@@ -11,13 +11,13 @@ type comments = {
 export type PostType = {
     _id: string;
     username: string;
-    userid: string;
+    email: string;
+    userImg?: string;
     category: string;
-    createdAt: string;
+    createdAt: number;
     title: string;
     description: string;
     comments: comments[];
-    author: string;
     image: string;
 }
 export type CategoryType = {

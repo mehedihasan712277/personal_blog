@@ -13,13 +13,13 @@ const Featured = () => {
                 </div>
                 <div className="flex flex-col gap-5 flex-1">
                     <p className="text-4xl">
-                        {"Welcome to Our Personal Blog: A Journey Through Technology, Travel, Fashion, and Life's Inspiring Stories"}
+                        {"Welcome to Bloggers': A Journey Through Technology, Travel, Fashion, and Life's Inspiring Stories"}
                     </p>
                     <p className="text-2xl text-softTextColor font-[300]">
-                        {"Hello and welcome! We're thrilled to have you here on our personal blog, where we share our thoughts, stories, and experiences. Whether you're a regular reader or a first-time visitor, we hope you find inspiration, ideas, and maybe even a little laughter along the way."}
+                        {"Hello and welcome! We're thrilled to have you here on Bloggers', where we share our thoughts, stories, and experiences. Whether you're a regular reader or a first-time visitor, we hope you find inspiration, ideas, and maybe even a little laughter along the way."}
                     </p>
-                    <Link href="/about" className="w-fit">
-                        <button className="bg-softBg w-fit px-5 py-4 rounded-md shadow-lg">
+                    <Link href="/about" className="w-full sm:w-fit">
+                        <button className="bg-softBg w-full sm:w-fit px-5 py-4 rounded-md shadow-lg">
                             Read More
                         </button>
                     </Link>

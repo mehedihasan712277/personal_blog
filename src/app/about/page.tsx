@@ -5,11 +5,11 @@ const AboutPage = () => {
         <div>
             <div className="max-w-4xl mx-auto px-4 py-12 text-softTextColor text-justify md:text-start">
                 <h1 className="text-3xl md:text-4xl font-bold mb-6 text-textColor">
-                    {"Welcome to Our Personal Blog: A Journey Through Technology, Travel, Fashion, and Life's Inspiring Stories"}
+                    {"Welcome to Our Bloggers': A Journey Through Technology, Travel, Fashion, and Life's Inspiring Stories"}
                 </h1>
 
                 <p className="mb-4">
-                    {"Hello and welcome! We're thrilled to have you here on our personal blog, where we share our thoughts, stories, and experiences. Whether you're a regular reader or a first-time visitor, we hope you find inspiration, ideas, and maybe even a little laughter along the way."}
+                    {"Hello and welcome! We're thrilled to have you here on Bloggers', where we share our thoughts, stories, and experiences. Whether you're a regular reader or a first-time visitor, we hope you find inspiration, ideas, and maybe even a little laughter along the way."}
                 </p>
 
                 <p className="mb-4">
