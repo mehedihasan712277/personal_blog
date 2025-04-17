@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
+import Swal from "sweetalert2";
 
 const LogInPage = () => {
     const { status } = useSession();
@@ -16,7 +17,14 @@ const LogInPage = () => {
         router.push("/")
     }
 
-
+    const showAlert = (name: string) => {
+        Swal.fire({
+            title: "Sign up with Google instead",
+            text: `${name}  Sign Up method is in construcion`,
+            icon: "warning",
+            timer: 3000
+        })
+    }
 
     return (
         <div>
@@ -25,14 +33,18 @@ const LogInPage = () => {
                     <div className="bg-[--softBg] flex flex-col gap-[50px] p-[100px_150px] rounded-[10px] max-md:p-[50px_100px] max-sm:p-[30px]">
                         <div
                             onClick={() => signIn("google")}
-                            className="p-[20px] rounded-[5px] text-white font-bold cursor-pointer flex items-center justify-center bg-[#ff5555] max-sm:font-normal max-sm:text-sm"
+                            className="p-[20px] rounded-[5px] text-white font-bold cursor-pointer flex items-center justify-center bg-[#ff5555] max-sm:font-normal max-sm:text-sm hover:opacity-85 transition-all ease-in-out duration-150 active:scale-95"
                         >
                             Sign in with Google
                         </div>
-                        <div className="p-[20px] rounded-[5px] text-white font-bold cursor-pointer flex items-center justify-center bg-[#111] max-sm:font-normal max-sm:text-sm">
+                        <div
+                            onClick={() => showAlert("Github")}
+                            className="p-[20px] rounded-[5px] text-white font-bold cursor-pointer flex items-center justify-center bg-[#111] max-sm:font-normal max-sm:text-sm hover:opacity-85 transition-all ease-in-out duration-150 active:scale-95">
                             Sign in with Github
                         </div>
-                        <div className="p-[20px] rounded-[5px] text-white font-bold cursor-pointer flex items-center justify-center bg-[#087bea] max-sm:font-normal max-sm:text-sm">
+                        <div
+                            onClick={() => showAlert("Facebook")}
+                            className="p-[20px] rounded-[5px] text-white font-bold cursor-pointer flex items-center justify-center bg-[#087bea] max-sm:font-normal max-sm:text-sm hover:opacity-85 transition-all ease-in-out duration-150 active:scale-95">
                             Sign in with Facebook
                         </div>
                     </div>

@@ -7,8 +7,10 @@ import 'react-quill/dist/quill.bubble.css';
 import Swal from "sweetalert2";
 import { useSession } from "next-auth/react";
 import { getPosts } from "@/utils/fetchData";
+import { useRouter } from "next/navigation";
 // Dynamically import ReactQuill to disable SSR
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
 const WritePage = () => {
     // const [open, setOpen] = useState(false);
     const { data } = useSession()
@@ -16,9 +18,25 @@ const WritePage = () => {
     const [value, setValue] = useState("");
     const [title, setTitle] = useState("");
     const [catSlug, setCatSlug] = useState("");
+    const route = useRouter();
 
     const handleSubmit = async () => {
         try {
+            // Basic validations
+            if (!title.trim()) {
+                throw new Error("Title is required.");
+            }
+
+            // If image is provided, validate it's from imgbb
+            if (bannerImg && !bannerImg.includes("https://i.ibb.co")) {
+                throw new Error("Image must be uploaded to imgbb (https://i.ibb.co/...)");
+            }
+
+            const plainValue = value.replace(/<(.|\n)*?>/g, "").trim(); // Strip HTML tags and trim
+            if (!plainValue) {
+                throw new Error("Description cannot be empty.");
+            }
+
             const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/posts`, {
                 method: "POST",
                 headers: {
@@ -46,21 +64,24 @@ const WritePage = () => {
             Swal.fire({
                 title: "Success",
                 text: "Blog Published Successfully",
-                icon: "success"
-            });
+                icon: "success",
+                confirmButtonText: "Done",
+            }).then(() => {
+                // ✅ Clear fields after success
+                setTitle("");
+                setBannerImg("");
+                setCatSlug("");
+                setValue("");
+                route.push("/#blog");
+            })
 
-            // ✅ Clear fields after success
-            setTitle("");
-            setBannerImg("");
-            setCatSlug("");
-            setValue("");
         } catch (error: unknown) {
             const err = error as Error;
             console.error("Submission error:", err);
             Swal.fire({
                 title: "Oops",
                 text: err?.message || "Something went wrong. Please try again.",
-                icon: "error"
+                icon: "error",
             });
         }
     };
@@ -73,11 +94,12 @@ const WritePage = () => {
                 placeholder="Title"
                 className="p-[0px] text-[64px] border-none outline-none bg-transparent text-[var(--textColor)] placeholder-[#b3b3b1]"
                 value={title}
+                required
                 onChange={(e) => setTitle(e.target.value)}
             />
             <input
                 type="text"
-                placeholder="paste image link"
+                placeholder="Paste image link from imgbb (optional)"
                 className="text-[24px] border-none outline-none bg-transparent text-[var(--textColor)] placeholder-[#b3b3b1]"
                 value={bannerImg}
                 onChange={(e) => setBannerImg(e.target.value)}

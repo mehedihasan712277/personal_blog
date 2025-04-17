@@ -14,14 +14,19 @@ const Page = async ({ searchParams }: PageProps) => {
     const blogs = await getPosts();
 
     return (
-        <div className="flex flex-col gap-4">
-            {
-                blogs.filter(e => e.category == category).map(ele => {
-                    return <div key={ele._id}>
-                        <Card data={ele}></Card>
-                    </div>
-                })
-            }
+        <div>
+            <p className='my-10 text-xl font-[500]'>
+                Total : {blogs.filter(e => e.category == category).length}
+            </p>
+            <div className="flex flex-col gap-10">
+                {
+                    blogs.filter(e => e.category == category).map(ele => {
+                        return <div key={ele._id}>
+                            <Card data={ele}></Card>
+                        </div>
+                    })
+                }
+            </div>
         </div>
     );
 };

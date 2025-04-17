@@ -13,10 +13,11 @@ const Footer = () => {
                     </p>
                 </div>
                 <p className="font-light">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
-                    necessitatibus similique aspernatur obcaecati veritatis. Aperiam cum
-                    porro sequi, totam minima consequuntur, aspernatur deleniti vero
-                    repellendus dorales.
+                    Crafted with passion, powered by words.
+                    This is a space where thoughts find their voice, stories find their home,
+                    and every post brings us a little closer together.
+                    <br />
+                    Stay connected:
                 </p>
                 <div className="mt-2 flex gap-2">
                     <Link href="#">

@@ -19,11 +19,16 @@ function getFirst15WordsFromHTML(html: string): string {
 }
 
 const Card = (data: CardPropType) => {
-    const { _id, title, description, category, createdAt } = data.data
+    const { _id, title, description, category, createdAt, image } = data.data
     return (
-        <div className="flex items-center gap-12">
-            <div className="flex-1 h-[350px]">
-                <Image src={p1} alt="img" className="h-[350px] object-cover"></Image>
+        <div className="flex items-center flex-col ml:flex-row gap-4 xl:gap-12">
+            <div className="flex-1 h-[300px] xl:h-[350px]">
+                {
+                    image ?
+                        <Image src={image} width={300} height={300} alt="img" className="w-auto h-[300px] xl:h-[350px] object-cover"></Image>
+                        :
+                        <Image src={p1} alt="img" className="h-[300px] xl:h-[350px] object-cover"></Image>
+                }
             </div>
 
             <div className="flex-1 space-y-4">
@@ -36,14 +41,14 @@ const Card = (data: CardPropType) => {
 
                 <div>
                     <Link href={`/blog/${_id}`}>
-                        <p className="text-3xl font-[700]">
+                        <p className="text-lg xl:text-3xl font-[700]">
                             {title}
                         </p>
                     </Link>
                 </div>
 
                 <div
-                    className="text-lg text-softTextColor font-[300]"
+                    className="text-sm xl:text-lg text-softTextColor font-[300]"
                     dangerouslySetInnerHTML={{
                         __html: getFirst15WordsFromHTML(description || ""),
                     }}

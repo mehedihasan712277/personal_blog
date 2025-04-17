@@ -1,6 +1,7 @@
 import { getPosts } from "@/utils/fetchData"
 import Card from "./Card"
-import Pagination from "./Pagination"
+// import Pagination from "./Pagination"
+import Link from 'next/link';
 
 const CardList = async () => {
     const data = await getPosts();
@@ -10,7 +11,7 @@ const CardList = async () => {
             <p className="my-12 text-3xl font-[700]">
                 Recent Posts
             </p>
-            <div className="space-y-12">
+            <div className="space-y-14 ml:space-y-12">
                 {
                     data.slice().reverse().slice(0, 4).map(ele => {
                         return <div key={ele._id}>
@@ -19,7 +20,10 @@ const CardList = async () => {
                     })
                 }
             </div>
-            <Pagination></Pagination>
+            {/* <Pagination></Pagination> */}
+            <div className="mt-10">
+                <Link href="/blogs" className="text-[crimson] font-[500] hover:underline">See all</Link>
+            </div>
         </div>
     )
 }

@@ -17,10 +17,10 @@ const Page: FC<PageProps> = () => {
       <Featured />
       <CategoryList />
       <div className="flex gap-12" id="blog">
-        <div className="flex-[5]">
+        <div className="md:flex-[5]">
           <CardList />
         </div>
-        <div className="flex-[2]">
+        <div className="hidden md:block md:flex-[2]">
           <Menu />
         </div>
       </div>

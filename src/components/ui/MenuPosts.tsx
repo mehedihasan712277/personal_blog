@@ -31,7 +31,12 @@ const MenuPosts = async ({ imageWith, title, subtitle }: { imageWith: boolean; t
                         return <Link href={`/blog/${ele._id}`} className="flex items-center gap-4" key={ele._id}>
                             {
                                 imageWith && <div className="flex-[1]">
-                                    <Image src={p1} alt="img" className="aspect-square rounded-full border-[3px] border-gray-300"></Image>
+                                    {
+                                        ele.image ?
+                                            <Image src={ele.image} width={63} height={63} className="aspect-square rounded-full border-[3px] border-gray-300" alt="img"></Image>
+                                            :
+                                            <Image src={p1} alt="img" className="aspect-square rounded-full border-[3px] border-gray-300"></Image>
+                                    }
                                 </div>
                             }
 
@@ -42,7 +47,7 @@ const MenuPosts = async ({ imageWith, title, subtitle }: { imageWith: boolean; t
                                     {ele.category.charAt(0).toUpperCase() + ele.category.slice(1)}
                                 </span>
 
-                                <p className="text-lg font-[500] text-softTextColor">
+                                <p className="text-sm lg:text-lg font-[500] text-softTextColor">
                                     {ele.title}
                                 </p>
 
