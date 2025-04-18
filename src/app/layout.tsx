@@ -43,7 +43,7 @@ export default function RootLayout({
               <div className="w-full text-textColor bg-bg">
                 <div className="wrapper font-sans">
                   <Navbar></Navbar>
-                  <div className="min-h-[calc(100vh-100px)]">
+                  <div className="min-h-[calc(100vh-100px)] pt-[100px] sm:pt-0">
                     {children}
                   </div>
                   <div className="border-t-[1px] border-bgSoft mt-20">

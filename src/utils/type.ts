@@ -3,11 +3,13 @@ export type UserType = {
     email: string
 }
 
-type comments = {
+export type CommentsType = {
     name: string;
-    date: string;
+    email: string;
+    createdAt: number;
     comment: string;
 }
+
 export type PostType = {
     _id: string;
     username: string;
@@ -17,9 +19,10 @@ export type PostType = {
     createdAt: number;
     title: string;
     description: string;
-    comments: comments[];
+    comments: CommentsType[];
     image: string;
 }
+
 export type CategoryType = {
     name: string
 }

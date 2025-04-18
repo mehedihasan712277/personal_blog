@@ -12,7 +12,7 @@ import Menu from "./Menu"
 
 const Navbar = () => {
     return (
-        <div className="flex items-center justify-between h-[100px]">
+        <div className="flex items-center justify-between px-4 sm:px-0 z-10 h-[100px] fixed top-0 left-0 right-0 sm:static bg-bg">
             {/* social */}
             <div className="xl:flex gap-[10px] flex-1 hidden">
                 <Image alt="icon" src={facebook} width={24} height={24}></Image>
