@@ -1,4 +1,5 @@
-
+import Image from "next/image"
+import p1 from "../../../public/p1.jpeg"
 
 const AboutPage = () => {
     return (
@@ -7,6 +8,7 @@ const AboutPage = () => {
                 <h1 className="text-3xl md:text-4xl font-bold mb-6 text-textColor">
                     {"Welcome to Our Bloggers': A Journey Through Technology, Travel, Fashion, and Life's Inspiring Stories"}
                 </h1>
+                <Image src={p1} alt="img" className="w-full h-[250px] ml:h-[300px] md:h-[350px] xl:h-[400px] 14i:h-[450px] my-10"></Image>
 
                 <p className="mb-4">
                     {"Hello and welcome! We're thrilled to have you here on Bloggers', where we share our thoughts, stories, and experiences. Whether you're a regular reader or a first-time visitor, we hope you find inspiration, ideas, and maybe even a little laughter along the way."}
