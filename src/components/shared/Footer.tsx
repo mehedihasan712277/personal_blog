@@ -52,10 +52,9 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col gap-2 font-light">
                     <span className="font-bold">Social</span>
-                    <Link href="/">Facebook</Link>
-                    <Link href="/">Instagram</Link>
-                    <Link href="/">Tiktok</Link>
-                    <Link href="/">Youtube</Link>
+                    <Link href="#">Facebook</Link>
+                    <Link href="#">Instagram</Link>
+                    <Link href="#">Youtube</Link>
                 </div>
             </div>
         </div>
