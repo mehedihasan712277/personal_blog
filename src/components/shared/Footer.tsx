@@ -27,9 +27,6 @@ const Footer = () => {
                         <Image src="/instagram.png" alt="Instagram" width={18} height={18} />
                     </Link>
                     <Link href="#">
-                        <Image src="/tiktok.png" alt="Tiktok" width={18} height={18} />
-                    </Link>
-                    <Link href="#">
                         <Image src="/youtube.png" alt="YouTube" width={18} height={18} />
                     </Link>
                 </div>
