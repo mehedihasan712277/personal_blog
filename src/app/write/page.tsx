@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 import 'react-quill/dist/quill.bubble.css';
@@ -13,12 +13,19 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const WritePage = () => {
     // const [open, setOpen] = useState(false);
-    const { data } = useSession()
+    const { data, status } = useSession()
     const [bannerImg, setBannerImg] = useState("");
     const [value, setValue] = useState("");
     const [title, setTitle] = useState("");
     const [catSlug, setCatSlug] = useState("");
     const route = useRouter();
+
+    useEffect(() => {
+        if (status === "unauthenticated") {
+            route.push("/login");
+        }
+    }, [status, route]);
+
 
     const handleSubmit = async () => {
         try {

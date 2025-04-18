@@ -88,7 +88,7 @@ const Comments = ({ postId, initialComments }: { postId: string, initialComments
             <div className="py-10">
                 {Boolean(comments.length) && (
                     <div className="flex flex-col gap-4">
-                        {comments.map((ele, i) => (
+                        {comments.slice().reverse().map((ele, i) => (
                             <div className="bg-softBg p-4 rounded-lg" key={i}>
                                 <div className="flex flex-wrap justify-between mb-3 gap-2 text-sm text-softTextColor">
                                     <p className="font-[500]">{ele.name}</p>
