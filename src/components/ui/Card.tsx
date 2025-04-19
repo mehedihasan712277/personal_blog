@@ -54,10 +54,6 @@ const Card = (data: CardPropType) => {
                     }}
                 />
 
-                {/* {description.split(".")[0]} */}
-                {/* {description.split(" ").slice(0, 15).join(" ") + " ..."} */}
-                {/* </div> */}
-
                 <div className="border-b-[1px] border-red-400 w-fit">
                     <Link href={`/blog/${_id}`}>
                         Read More

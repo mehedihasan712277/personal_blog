@@ -22,7 +22,3 @@ export type PostType = {
     comments: CommentsType[];
     image: string;
 }
-
-export type CategoryType = {
-    name: string
-}

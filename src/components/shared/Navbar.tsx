@@ -18,10 +18,12 @@ const Navbar = () => {
                 <Link href="#"><Image alt="icon" src={instagram} width={24} height={24}></Image></Link>
                 <Link href="#"><Image alt="icon" src={youtube} width={24} height={24}></Image></Link>
             </div>
+
             {/* logo */}
             <div className="flex-1 xl:text-center font-[700] text-2xl 14i:text-4xl">
                 {"Bloggers'"}
             </div>
+
             {/* links - for learge device */}
             <div className="hidden sm:flex justify-end items-center gap-3 md:gap-3 14i:gap-4 15i:gap-5 flex-1 text-sm md:text-[16px] 15i:text-xl">
                 <ThemeToggle></ThemeToggle>
@@ -30,7 +32,6 @@ const Navbar = () => {
                 <Link href="/about">About</Link>
                 <AuthLinks></AuthLinks>
             </div>
-
 
             {/* links - for small device */}
             <Menu></Menu>
