@@ -73,7 +73,7 @@ const Comments = ({ postId, initialComments }: { postId: string, initialComments
                 <textarea
                     rows={4}
                     placeholder="Write your comment..."
-                    className="resize-none p-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-[#2a2a2a] text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                    className="resize-none p-3 border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-transparent text-textColor placeholder-softTextColor"
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
                 />
