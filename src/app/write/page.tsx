@@ -95,7 +95,7 @@ const WritePage = () => {
 
 
     return (
-        <div className="relative flex flex-col gap-4">
+        <div className="relative flex flex-col gap-4 pt-10">
             <input
                 type="text"
                 placeholder="Title"
@@ -131,7 +131,7 @@ const WritePage = () => {
                 placeholder="Tell your story..."
             />
             <button
-                className="absolute top-0 right-0 px-[20px] py-[10px] border-none bg-[#1a8917] text-white cursor-pointer rounded-[20px]"
+                className="absolute top-0 right-0 px-[20px] py-[10px] border-none bg-[#1a8917] text-white cursor-pointer rounded-[20px] hover:bg-opacity-80 active:scale-x-95 transition-all ease-in-out duration-150"
                 onClick={handleSubmit}
             >
                 Publish
