@@ -1,4 +1,4 @@
-import { UserType, PostType, CategoryType } from "./type.jsx";
+import { PostType, UserType } from "./type";
 
 // Fetch all users
 export const getUsers = async (): Promise<UserType[]> => {
@@ -39,20 +39,5 @@ export const getSinglePost = async (id: string): Promise<PostType | null> => {
     } catch (error) {
         console.error("Error fetching post:", error);
         return null;
-    }
-};
-
-
-// Fetch all categories
-export const getCategories = async (): Promise<CategoryType[]> => {
-    try {
-        const result = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`, {
-            next: { revalidate: 0 },
-        }).then(res => res.json());
-
-        return result;
-    } catch (error) {
-        console.error("Error fetching categories:", error);
-        return [];
     }
 };
