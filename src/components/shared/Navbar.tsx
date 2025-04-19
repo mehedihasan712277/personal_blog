@@ -7,7 +7,7 @@ import youtube from "../../../public/youtube.png"
 import Link from "next/link"
 import ThemeToggle from "./ThemeToggle"
 import AuthLinks from "./AuthLinks"
-import Menu from "./Menu"
+import Menu from "./Links"
 
 const Navbar = () => {
     return (

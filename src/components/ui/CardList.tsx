@@ -20,7 +20,6 @@ const CardList = async () => {
                     })
                 }
             </div>
-            {/* <Pagination></Pagination> */}
             <div className="mt-10">
                 <Link href="/blogs" className="text-[crimson] font-[500] hover:underline">See all</Link>
             </div>
