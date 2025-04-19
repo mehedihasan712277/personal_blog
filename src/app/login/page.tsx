@@ -18,7 +18,7 @@ const LogInPage = () => {
     }, [status, router, callbackUrl]);
 
     if (status === "loading") {
-        return <div className="text-textColor h-calc(100vh - 100px) flex items-center justify-center text-xl font-[500]">Loading...</div>;
+        return <div className="text-textColor h-calc(100vh-100px) flex items-center justify-center text-xl font-[500]">Loading...</div>;
     }
 
     const showAlert = (name: string) => {
