@@ -23,8 +23,9 @@ const Comments = ({ postId, initialComments }: { postId: string, initialComments
                 icon: "warning",
                 confirmButtonText: "Log In"
             }).then(() => {
-                route.push("/login");
+                route.push(`/login?callbackUrl=${encodeURIComponent(window.location.pathname)}`);
             });
+
         } else {
             if (!comment.trim()) {
                 Swal.fire("Oops!", "Comment cannot be empty", "warning");
