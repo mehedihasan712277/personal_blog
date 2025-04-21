@@ -23,7 +23,10 @@ const BlogDetailsPage = async ({ params }: BlogDetailsPageProps) => {
                 )}
                 <p className="text-3xl font-[500] text-textColor mt-4">{data?.title}</p>
                 <p className="font-[500] py-4">{data?.username}</p>
-                <p className="font-[500] pb-12">{getFormattedTime(data?.createdAt || Date.now())}</p>
+                <div className="flex items-center justify-between flex-wrap gap-2 pb-12">
+                    <p className="font-[500]">{getFormattedTime(data?.createdAt || Date.now())}</p>
+                    <p className="text-softTextColor">Views: {data?.view}</p>
+                </div>
                 <div className="text-xl" dangerouslySetInnerHTML={{ __html: data?.description || "" }} />
             </div>
             {data?._id && <Comments postId={data._id} initialComments={data.comments} />}

@@ -21,4 +21,5 @@ export type PostType = {
     description: string;
     comments: CommentsType[];
     image: string;
+    view: number;
 }
