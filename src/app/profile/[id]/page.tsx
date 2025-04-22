@@ -71,10 +71,14 @@ const ProfilePage = () => {
             });
 
             setPosts(prev => prev.filter(post => post._id !== id));
-        } catch (error: any) {
+        } catch (error: unknown) {
+            let message = "An unknown error occurred.";
+            if (error instanceof Error) {
+                message = error.message;
+            }
             Swal.fire({
                 title: "Error",
-                text: error.message,
+                text: message,
                 icon: "error",
             });
         }

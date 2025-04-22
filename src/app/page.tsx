@@ -16,9 +16,11 @@ const Page: FC<PageProps> = () => {
     <div>
       <Featured />
       <CategoryList />
-      <div className="flex gap-12" id="blog">
+      <div className="flex gap-12">
         <div className="md:flex-[5]">
-          <CardList />
+          <div id="blog">
+            <CardList />
+          </div>
         </div>
         <div className="hidden md:block md:flex-[2]">
           <Menu />
