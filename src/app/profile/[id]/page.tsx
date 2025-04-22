@@ -91,19 +91,28 @@ const ProfilePage = () => {
     return (
         <div>
             <div className="">
-                <p className="text-3xl py-6">Your Blogs</p>
+                {
+                    Boolean(posts.length) && <p className="text-3xl py-6">Your Blogs</p>
+                }
                 <div className="space-y-10">
-                    {posts.slice().reverse().map(post => (
-                        <div className="relative group" key={post._id}>
-                            <Card data={post} />
-                            <button
-                                onClick={() => handleDelete(post._id)}
-                                className="absolute bottom-4 right-4 opacity-0 transition-all ease-in-out duration-150 group-hover:opacity-100 h-12 w-12 bg-softBg flex justify-center items-center rounded-full active:scale-90"
-                            >
-                                <Trash2 color="crimson" />
-                            </button>
-                        </div>
-                    ))}
+
+                    {
+                        posts.length === 0 ?
+                            <div className="text-xl text-softTextColor text-center h-[calc(100vh-100px)] flex items-center justify-center">
+                                You did not post anything
+                            </div>
+                            :
+                            posts.slice().reverse().map(post => (
+                                <div className="relative group" key={post._id}>
+                                    <Card data={post} />
+                                    <button
+                                        onClick={() => handleDelete(post._id)}
+                                        className="absolute bottom-4 right-4 opacity-0 transition-all ease-in-out duration-150 group-hover:opacity-100 h-12 w-12 bg-softBg flex justify-center items-center rounded-full active:scale-90"
+                                    >
+                                        <Trash2 color="crimson" />
+                                    </button>
+                                </div>
+                            ))}
                 </div>
             </div>
         </div>
