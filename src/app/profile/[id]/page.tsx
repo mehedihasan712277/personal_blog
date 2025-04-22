@@ -1,24 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Card from "@/components/ui/Card";
 import { Trash2 } from "lucide-react";
 import Swal from "sweetalert2";
 import { useSession } from "next-auth/react";
 import { PostType } from "@/utils/type";
 
-// interface PostType {
-//     _id: string;
-//     title: string;
-//     content: string;
-//     email: string;
-//     // Add more fields if needed
-// }
-
 const ProfilePage = () => {
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
     const [posts, setPosts] = useState<PostType[]>([]);
-    const [loading, setLoading] = useState(true);
+    const router = useRouter();
+
+    // Redirect to /login if unauthenticated
+    useEffect(() => {
+        if (status === "unauthenticated") {
+            router.push("/login");
+        }
+    }, [status, router]);
 
     const fetchUserPosts = async () => {
         try {
@@ -30,8 +30,6 @@ const ProfilePage = () => {
             setPosts(data);
         } catch (error) {
             console.error("Error fetching posts:", error);
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -85,14 +83,10 @@ const ProfilePage = () => {
     };
 
     useEffect(() => {
-        if (session) {
+        if (status === "authenticated") {
             fetchUserPosts();
         }
-    }, [session]);
-
-    if (loading) {
-        return <p>Loading...</p>;
-    }
+    }, [status, session]);
 
     return (
         <div>
