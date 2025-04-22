@@ -102,7 +102,7 @@ const ProfilePage = () => {
                                 You did not post anything
                             </div>
                             :
-                            posts.slice().reverse().map(post => (
+                            posts?.slice()?.reverse()?.map(post => (
                                 <div className="relative group" key={post._id}>
                                     <Card data={post} />
                                     <button
