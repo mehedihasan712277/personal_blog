@@ -3,7 +3,8 @@ import Link from "next/link"
 import { signOut, useSession } from "next-auth/react";
 
 const AuthLinks = () => {
-    const { status } = useSession();
+    const { status, data } = useSession();
+
 
     const handleSignOut = async () => {
         await signOut();
@@ -17,6 +18,7 @@ const AuthLinks = () => {
                     :
                     <>
                         <Link href="/write">Write</Link>
+                        <Link href={`/profile/${data?.user?.email?.split("@")[0]}`}>Profile</Link>
                         <span className="cursor-pointer" onClick={handleSignOut}>Logout</span>
                     </>
             }

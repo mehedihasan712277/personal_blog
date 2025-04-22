@@ -41,3 +41,18 @@ export const getSinglePost = async (id: string): Promise<PostType | null> => {
         return null;
     }
 };
+
+//get profile info
+export const getPostsOfUser = async (email: string): Promise<PostType[]> => {
+    try {
+        const result = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/posts/user/${email}`, {
+            next: { revalidate: 0 },
+        }).then(res => res.json());
+        console.log(result);
+
+        return result;
+    } catch (error) {
+        console.error("Error fetching posts:", error);
+        return [];
+    }
+};
