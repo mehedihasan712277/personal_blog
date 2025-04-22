@@ -12,7 +12,6 @@ import { useRouter } from "next/navigation";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const WritePage = () => {
-    // const [open, setOpen] = useState(false);
     const { data, status } = useSession()
     const [bannerImg, setBannerImg] = useState("");
     const [value, setValue] = useState("");
