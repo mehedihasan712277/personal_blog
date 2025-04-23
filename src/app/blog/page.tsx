@@ -1,7 +1,13 @@
-// app/page.tsx or app/blog/page.tsx (wherever you use it)
+import style from "../../../public/style.png"
+import fashion from "../../../public/fashion.png"
+import food from "../../../public/food.png"
+import travel from "../../../public/travel.png"
+import culture from "../../../public/culture.png"
+import coding from "../../../public/coding.png"
 
 import Card from "@/components/ui/Card";
 import { getPosts } from "@/utils/fetchData";
+import Image from "next/image"
 
 interface PageProps {
     searchParams: {
@@ -15,12 +21,15 @@ const Page = async ({ searchParams }: PageProps) => {
 
     return (
         <div>
-            <p className='my-10 text-xl font-[500]'>
+            <p className="text-xl md:text-3xl font-[500] mt-5 md:mt-10">
+                Category - <span className="text-red-400">{category?.toUpperCase()}</span>
+            </p>
+            <p className='mb-5 md:mb-10 text-sm md:text-xl text-softTextColor'>
                 Total : {blogs.filter(e => e.category == category).length}
             </p>
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-16">
                 {
-                    blogs.filter(e => e.category == category).map(ele => {
+                    blogs.filter(e => e.category == category).slice().reverse().map(ele => {
                         return <div key={ele._id}>
                             <Card data={ele}></Card>
                         </div>

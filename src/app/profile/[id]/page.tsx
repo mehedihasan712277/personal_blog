@@ -91,6 +91,14 @@ const ProfilePage = () => {
     return (
         <div>
             <div className="">
+                <div>
+                    <p className="text-3xl font-[500]">
+                        {session?.user?.name}
+                    </p>
+                    <p className="text-xl text-softTextColor">
+                        {session?.user?.email}
+                    </p>
+                </div>
                 {
                     Boolean(posts.length) && <p className="text-3xl py-6">Your Blogs</p>
                 }
@@ -112,7 +120,8 @@ const ProfilePage = () => {
                                         <Trash2 color="crimson" />
                                     </button>
                                 </div>
-                            ))}
+                            ))
+                    }
                 </div>
             </div>
         </div>

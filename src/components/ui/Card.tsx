@@ -25,7 +25,7 @@ const Card = (data: CardPropType) => {
             <div className="flex-1 h-[300px] xl:h-[350px]">
                 {
                     image ?
-                        <Image src={image} width={300} height={300} alt="img" className="w-auto h-[300px] xl:h-[350px] object-cover"></Image>
+                        <Image src={image} width={300} height={300} alt="img" className="w-full h-[300px] xl:h-[350px] object-cover"></Image>
                         :
                         <Image src={p1} alt="img" className="h-[300px] xl:h-[350px] object-cover"></Image>
                 }
