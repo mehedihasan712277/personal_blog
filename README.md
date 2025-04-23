@@ -1,1 +1,1 @@
-live link : https://personal-blog-henna-eta.vercel.app/
+live link : https://bloggerspalace.vercel.app
