@@ -1,13 +1,8 @@
-import style from "../../../public/style.png"
-import fashion from "../../../public/fashion.png"
-import food from "../../../public/food.png"
-import travel from "../../../public/travel.png"
-import culture from "../../../public/culture.png"
-import coding from "../../../public/coding.png"
+
 
 import Card from "@/components/ui/Card";
 import { getPosts } from "@/utils/fetchData";
-import Image from "next/image"
+
 
 interface PageProps {
     searchParams: {
