@@ -7,6 +7,8 @@ import { Trash2 } from "lucide-react";
 import Swal from "sweetalert2";
 import { useSession } from "next-auth/react";
 import { PostType } from "@/utils/type";
+import Favourite from "@/components/ui/Favourite";
+import LastRead from "@/components/ui/LastRead";
 
 const ProfilePage = () => {
     const { data: session, status } = useSession();
@@ -90,7 +92,7 @@ const ProfilePage = () => {
 
     return (
         <div>
-            <div className="">
+            <div>
                 <div>
                     <p className="text-3xl font-[500]">
                         {session?.user?.name}
@@ -99,29 +101,42 @@ const ProfilePage = () => {
                         {session?.user?.email}
                     </p>
                 </div>
-                {
-                    Boolean(posts.length) && <p className="text-3xl py-6">Your Blogs</p>
-                }
-                <div className="space-y-10">
 
-                    {
-                        posts.length === 0 ?
-                            <div className="text-xl text-softTextColor text-center h-[calc(100vh-100px)] flex items-center justify-center">
-                                You did not post anything
-                            </div>
-                            :
-                            posts?.slice()?.reverse()?.map(post => (
-                                <div className="relative group" key={post._id}>
-                                    <Card data={post} />
-                                    <button
-                                        onClick={() => handleDelete(post._id)}
-                                        className="absolute bottom-4 right-4 opacity-0 transition-all ease-in-out duration-150 group-hover:opacity-100 h-12 w-12 bg-softBg flex justify-center items-center rounded-full active:scale-90"
-                                    >
-                                        <Trash2 color="crimson" />
-                                    </button>
+                <div className="flex mt-16 gap-4">
+
+                    <div className="space-y-10 flex-[4]">
+                        {
+                            Boolean(posts.length) && <p className="text-3xl">Your Blogs</p>
+                        }
+                        {
+                            posts.length === 0
+                                ?
+                                <div className="text-xl text-softTextColor text-center h-[calc(100vh-100px)] flex items-center justify-center">
+                                    You did not post anything
                                 </div>
-                            ))
-                    }
+                                :
+                                posts?.slice()?.reverse()?.map(post => (
+                                    <div className="relative group" key={post._id}>
+                                        <Card data={post} />
+                                        <button
+                                            onClick={() => handleDelete(post._id)}
+                                            className="absolute bottom-4 right-4 opacity-0 transition-all ease-in-out duration-150 group-hover:opacity-100 h-12 w-12 bg-softBg flex justify-center items-center rounded-full active:scale-90"
+                                        >
+                                            <Trash2 color="crimson" />
+                                        </button>
+                                    </div>
+                                ))
+                        }
+                    </div>
+                    {/* ---------------right side---------------- */}
+                    <div className="flex-[1]">
+                        <div>
+                            <Favourite></Favourite>
+                        </div>
+                        <div>
+                            {/* <LastRead></LastRead> */}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

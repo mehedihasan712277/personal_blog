@@ -5,6 +5,7 @@ import Image from "next/image";
 import p1 from "../../../../public/p1.jpeg";
 import Comments from "@/components/shared/Comments";
 import { PostType } from "@/utils/type";
+import FavButon from "@/components/ui/FavButon";
 
 interface BlogDetailsPageProps {
     params: { id: string };
@@ -15,6 +16,8 @@ const BlogDetailsPage = async ({ params }: BlogDetailsPageProps) => {
 
     return (
         <div>
+            {data && <FavButon postId={data._id}></FavButon>}
+
             <div className="text-softTextColor mt-12 max-w-[800px] mx-auto">
                 {data?.image ? (
                     <Image src={data.image} width={800} height={450} className="h-[250px] ml:h-[350px] md:h-[400px] xl:h-[450px] w-full" alt="img" />
